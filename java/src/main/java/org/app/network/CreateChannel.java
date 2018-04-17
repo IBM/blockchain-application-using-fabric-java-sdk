@@ -14,11 +14,10 @@ package org.app.network;
 
 import java.io.File;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.app.client.CAClient;
-import org.app.client.ChannelClient;
 import org.app.client.FabricClient;
 import org.app.config.Config;
 import org.app.user.UserContext;
@@ -28,8 +27,6 @@ import org.hyperledger.fabric.sdk.ChannelConfiguration;
 import org.hyperledger.fabric.sdk.Enrollment;
 import org.hyperledger.fabric.sdk.Orderer;
 import org.hyperledger.fabric.sdk.Peer;
-import org.hyperledger.fabric.sdk.ProposalResponse;
-import org.hyperledger.fabric.sdk.TransactionRequest.Type;
 import org.hyperledger.fabric.sdk.security.CryptoSuite;
 
 /**
@@ -90,15 +87,21 @@ public class CreateChannel {
 			mychannel.addOrderer(orderer);
 
 			mychannel.initialize();
-//			FabricClient fabClient2 = new FabricClient(org2Admin);
-//			byte[] channelConfigurationSignatures2 = fabClient2.getInstance()
-//					.getChannelConfigurationSignature(channelConfiguration, org2Admin);
-//			mychannel.updateChannelConfiguration(channelConfiguration, fabClient2.getInstance().getUpdateChannelConfigurationSignature(channelConfiguration, org2Admin));
-//			mychannel.joinPeer(peer0_org2);
-//			mychannel.joinPeer(peer1_org2);
+			
+			fabClient.getInstance().setUserContext(org2Admin);
+			mychannel = fabClient.getInstance().getChannel("mychannel");
+			mychannel.joinPeer(peer0_org2);
+			mychannel.joinPeer(peer1_org2);
 			
 			Logger.getLogger(CreateChannel.class.getName()).log(Level.INFO, "Channel created "+mychannel.getName());
-
+            Collection peers = mychannel.getPeers();
+            Iterator peerIter = peers.iterator();
+            while (peerIter.hasNext())
+            {
+            	  Peer pr = (Peer) peerIter.next();
+            	  System.out.println(pr.getName()+ " at " + pr.getUrl());
+            }
+            
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

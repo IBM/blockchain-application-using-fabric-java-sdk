@@ -56,19 +56,7 @@ public class InvokeQueryChaincode {
 			caClient.setAdminUserContext(adminUserContext);
 			adminUserContext = caClient.enrollAdminUser(Config.ADMIN, Config.ADMIN_PASSWORD);
 			
-            // Register and Enroll user to Org1MSP
-			UserContext userContext = new UserContext();
-			String name = "user"+System.currentTimeMillis();
-			userContext.setName(name);
-			userContext.setAffiliation(Config.ORG1);
-			userContext.setMspId(Config.ORG1_MSP);
-
-			String eSecret = caClient.registerUser(name, Config.ORG1);
-			
-			userContext = caClient.enrollUser(userContext, eSecret);
-
 			FabricClient fabClient = new FabricClient(adminUserContext);
-			
 			
 			ChannelClient channelClient = fabClient.createChannelClient(Config.CHANNEL_NAME);
 			Channel channel = channelClient.getChannel();
@@ -81,7 +69,6 @@ public class InvokeQueryChaincode {
 			channel.initialize();
 
 			TransactionProposalRequest request = fabClient.getInstance().newTransactionProposalRequest();
-			//request.setUserContext(userContext);
 			ChaincodeID ccid = ChaincodeID.newBuilder().setName(Config.CHAINCODE_1_NAME).build();
 			request.setChaincodeID(ccid);
 			request.setFcn("createCar");
