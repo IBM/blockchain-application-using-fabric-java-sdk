@@ -21,7 +21,7 @@ When the reader has completed this pattern, they will understand how to create a
 
 * [Blockchain](https://en.wikipedia.org/wiki/Blockchain): A blockchain is a digitized, decentralized, public ledger of all transactions in a network.
 
-* Java: Java is a general-purpose computer-programming language that is concurrent, class-based and object-oriented.
+* [Java](https://en.wikipedia.org/wiki/Java_(programming_language)): Java is a general-purpose computer-programming language that is concurrent, class-based and object-oriented.
 
 ## Watch the Video
 TODO
