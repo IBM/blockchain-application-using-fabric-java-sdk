@@ -93,9 +93,9 @@ public class CAClient {
 		Enrollment adminEnrollment = instance.enroll(username, password);
 		adminContext.setEnrollment(adminEnrollment);
 		Logger.getLogger(CAClient.class.getName()).log(Level.INFO, "CA -" + caUrl + " Enrolled Admin.");
-		Logger.getLogger(CAClient.class.getName()).log(Level.INFO, "CA -" + caUrl + " Enrollment Key - " + adminEnrollment.getKey().toString().substring(0,10)+"...");
+		Logger.getLogger(CAClient.class.getName()).log(Level.INFO, "CA -" + caUrl + " Enrollment Key - " + adminEnrollment.getKey().toString().substring(27,100)+"...");
 		Logger.getLogger(CAClient.class.getName()).log(Level.INFO, "CA -" + caUrl +
-				" Enrollment Certificate - " + adminEnrollment.getCert().substring(0, 20)+"...");
+				" Enrollment Certificate - " + adminEnrollment.getCert().substring(27, 100)+"...");
 		Util.writeUserContext(adminContext);
 		return adminContext;
 	}

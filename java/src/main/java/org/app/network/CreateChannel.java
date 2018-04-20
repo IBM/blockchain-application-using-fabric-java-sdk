@@ -99,7 +99,7 @@ public class CreateChannel {
             while (peerIter.hasNext())
             {
             	  Peer pr = (Peer) peerIter.next();
-            	  System.out.println(pr.getName()+ " at " + pr.getUrl());
+            	  Logger.getLogger(CreateChannel.class.getName()).log(Level.INFO,pr.getName()+ " at " + pr.getUrl());
             }
             
 		} catch (Exception e) {

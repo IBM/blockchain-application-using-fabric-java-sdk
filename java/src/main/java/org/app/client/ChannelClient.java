@@ -122,11 +122,11 @@ public class ChannelClient {
 			Logger.getLogger(ChannelClient.class.getName()).log(Level.INFO,
 					"Transaction proposal on channel " + channel.getName() + " " + pres.getMessage() + " "
 							+ pres.getStatus() + " with transaction id:" + pres.getTransactionID());
-			System.out.println(stringResponse);
+			Logger.getLogger(ChannelClient.class.getName()).log(Level.INFO,stringResponse);
 		}
 
 		CompletableFuture<TransactionEvent> cf = channel.sendTransaction(response);
-		System.out.println(cf);
+		Logger.getLogger(ChannelClient.class.getName()).log(Level.INFO,cf.toString());
 
 		return response;
 	}

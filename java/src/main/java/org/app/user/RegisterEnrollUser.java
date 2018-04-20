@@ -12,11 +12,8 @@
  */
 package org.app.user;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-
 import org.app.client.CAClient;
 import org.app.config.Config;
-import org.app.user.UserContext;
 import org.app.util.Util;
 
 /**
