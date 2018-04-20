@@ -9,7 +9,7 @@ When the reader has completed this pattern, they will understand how to create a
 
 ## Flow
 
-![](images/architecture.png)
+   ![](images/architecture.png)
 
 1. Generate the artifacts using cryptogen and configtx for peers and channel in network. Currently these are already generated and provided in the code repository to use as-is.
 2. Build the network using docker-compose and generated artifacts.
