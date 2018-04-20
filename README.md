@@ -108,10 +108,10 @@ java -cp blockchain-client.jar org.app.network.CreateChannel
 
 This code pattern uses a sample chaincode `fabcar` to demo the usage of Hyperledger Fabric SDK Java APIs. To deploy and instantiate the chaincode, execute the following command.
 
-> **Note:** The chaincode fabcar.go was taken from the fabric samples available at - https://github.com/hyperledger/fabric-samples/tree/release-1.1/chaincode/fabcar/go.
 ```
 java -cp blockchain-client.jar org.app.network.DeployInstantiateChaincode
 ```
+> **Note:** The chaincode fabcar.go was taken from the fabric samples available at - https://github.com/hyperledger/fabric-samples/tree/release-1.1/chaincode/fabcar/go.
 
 ### 5. Perform Invoke and Query on the Network
 
