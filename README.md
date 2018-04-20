@@ -127,12 +127,42 @@ In this code pattern, we create one channel `mychannel` which is joined by all f
    java -cp blockchain-client.jar org.app.network.CreateChannel
    ```
 
+Output:
+
+   ```Apr 20, 2018 5:11:42 PM org.app.util.Util deleteDirectory
+      INFO: Deleting - users
+      Apr 20, 2018 5:11:45 PM org.app.network.CreateChannel main
+      INFO: Channel created mychannel
+      Apr 20, 2018 5:11:45 PM org.app.network.CreateChannel main
+      INFO: peer0.org1.example.com at grpc://localhost:7051
+      Apr 20, 2018 5:11:45 PM org.app.network.CreateChannel main
+      INFO: peer1.org1.example.com at grpc://localhost:7056
+      Apr 20, 2018 5:11:45 PM org.app.network.CreateChannel main
+      INFO: peer0.org2.example.com at grpc://localhost:8051
+      Apr 20, 2018 5:11:45 PM org.app.network.CreateChannel main
+      INFO: peer1.org2.example.com at grpc://localhost:8056
+   ```  
+   
 ### 4. Deploy and Instantiate the chaincode
 
 This code pattern uses a sample chaincode `fabcar` to demo the usage of Hyperledger Fabric SDK Java APIs. To deploy and instantiate the chaincode, execute the following command.
 
    ```
    java -cp blockchain-client.jar org.app.network.DeployInstantiateChaincode
+   ```
+   
+   Output:
+   
+   ```Apr 20, 2018 5:12:00 PM org.app.client.FabricClient deployChainCode
+      INFO: Deploying chaincode fabcar using Fabric client Org1MSP admin
+      Apr 20, 2018 5:12:01 PM org.app.client.FabricClient deployChainCode
+      INFO: Deploying chaincode fabcar using Fabric client Org2MSP admin
+      Apr 20, 2018 5:12:01 PM org.app.client.ChannelClient instantiateChainCode
+      INFO: Instantiate proposal request fabcar on channel mychannel with Fabric client Org2MSP admin
+      Apr 20, 2018 5:12:01 PM org.app.client.ChannelClient instantiateChainCode
+      INFO: Instantiating Chaincode ID fabcar on channel mychannel
+      Apr 20, 2018 5:12:44 PM org.app.client.ChannelClient instantiateChainCode
+      INFO: Chaincode fabcar on channel mychannel instantiation java.util.concurrent.CompletableFuture@4d0d9fe7[Not completed]
    ```
    
    > **Note:** The chaincode fabcar.go was taken from the fabric samples available at - https://github.com/hyperledger/fabric-samples/tree/release-1.1/chaincode/fabcar/go.
@@ -142,13 +172,46 @@ This code pattern uses a sample chaincode `fabcar` to demo the usage of Hyperled
 Blockchain network has been setup completely and is ready to use. Now we can test the network by performing invoke and query on the network. The `fabcar` chaincode allows us to create a new asset which is a car. For test purpose, invoke operation is performed to create a new asset in the network and query operation is performed to list the assets of the network. Perform the following steps to check the same.
 
    ```
-   java -cp blockchain-client.jar org.app.chaincode.invocation.InvokeQueryChaincode
+   java -cp blockchain-client.jar org.app.chaincode.invocation.InvokeChaincode
    ```
 
-The output of invoke and query should be as shown below.
+   Output:
+   
+   ```Apr 20, 2018 5:13:03 PM org.app.client.CAClient enrollAdminUser
+     INFO: CA -http://localhost:7054 Enrolled Admin.
+     Apr 20, 2018 5:13:04 PM org.app.client.ChannelClient sendTransactionProposal
+     INFO: Sending transaction proposal on channel mychannel
+     Apr 20, 2018 5:13:04 PM org.app.client.ChannelClient sendTransactionProposal
+     INFO: Transaction proposal on channel mychannel OK SUCCESS with transaction       
+     id:a298b9e27bdb0b6ca18b19f9c78a5371fb4d9b8dd199927baf37379537ca0d0f
+     Apr 20, 2018 5:13:04 PM org.app.client.ChannelClient sendTransactionProposal
+     INFO: 
+     Apr 20, 2018 5:13:04 PM org.app.client.ChannelClient sendTransactionProposal
+     INFO: java.util.concurrent.CompletableFuture@22f31dec[Not completed]
+     Apr 20, 2018 5:13:04 PM org.app.chaincode.invocation.InvokeChaincode main
+     INFO: Invoked createCar on fabcar. Status - SUCCESS
+  ```   
 
    ```
-   snapshot
+   java -cp blockchain-client.jar org.app.chaincode.invocation.QueryChaincode
+   ```
+   
+   Output:
+   
+   ```Apr 20, 2018 5:13:28 PM org.app.client.CAClient enrollAdminUser
+      INFO: CA -http://localhost:7054 Enrolled Admin.
+      Apr 20, 2018 5:13:29 PM org.app.chaincode.invocation.QueryChaincode main
+      INFO: Querying for all cars ...
+      Apr 20, 2018 5:13:29 PM org.app.client.ChannelClient queryByChainCode
+      INFO: Querying queryAllCars on channel mychannel
+      Apr 20, 2018 5:13:29 PM org.app.chaincode.invocation.QueryChaincode main
+      INFO: [{"Key":"CAR1", "Record":{"make":"Chevy","model":"Volt","colour":"Red","owner":"Nick"}}]
+      Apr 20, 2018 5:13:39 PM org.app.chaincode.invocation.QueryChaincode main
+      INFO: Querying for a car - [Ljava.lang.String;@77d2e85
+      Apr 20, 2018 5:13:39 PM org.app.client.ChannelClient queryByChainCode
+      INFO: Querying queryCar on channel mychannel
+      Apr 20, 2018 5:13:39 PM org.app.chaincode.invocation.QueryChaincode main
+      INFO: {"make":"Chevy","model":"Volt","colour":"Red","owner":"Nick"}
    ```
 
 ## Troubleshooting
