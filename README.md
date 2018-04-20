@@ -9,6 +9,16 @@ When the reader has completed this pattern, they will understand how to create a
 
 ## Flow
 
+![](images/architecture.png)
+
+1. Generate the artifacts using cryptogen and configtx for peers and channel in network. Currently these are already generated and provided in the code repository to use as-is.
+2. Build the network using docker-compose and generated artifacts.
+3. Use Fabric Java SDK APIs to work with the network. 
+    * create and initialize the channel
+    * install and instantiate the chaincode
+    * perform invoke and query to test the network
+
+
 ## Included Components
 
 * [Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/): Hyperledger Fabric is a platform for distributed ledger solutions underpinned by a modular architecture delivering high degrees of confidentiality, resiliency, flexibility and scalability.
