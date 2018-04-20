@@ -11,7 +11,7 @@ When the reader has completed this pattern, they will understand how to create, 
 
 ## Flow
 
-      ![](images/architecture.png)
+   ![](images/architecture.png)
 
 1. Generate the artifacts using cryptogen and configtx for peers and channel in network. Currently these are already generated and provided in the code repository to use as-is.
 2. Build the network using docker-compose and the generated artifacts.
@@ -56,7 +56,11 @@ Follow these steps to setup and run this code pattern.
 
 ### 1. Setup the Blockchain Network
 
-* [Clone this repo](https://github.com/IBM/blockchain-application-using-fabric-java-sdk)
+[Clone this repo](https://github.com/IBM/blockchain-application-using-fabric-java-sdk) using the following command.
+
+```
+$ git clone https://github.com/IBM/blockchain-application-using-fabric-java-sdk.git
+```
 
 To build the blockchain network, the first step is to generate artifacts for peers and channels using cryptogen and configtx. The utilities used and steps to generate artifacts are explained [here](http://hyperledger-fabric.readthedocs.io/en/release-1.0/build_network.html). In this pattern all required artifacts for the peers and channel of the network are already generated and provided to use as-is. Artifacts can be located at:
 
@@ -130,7 +134,7 @@ This code pattern uses a sample chaincode `fabcar` to demo the usage of Hyperled
    
    > **Note:** The chaincode fabcar.go was taken from the fabric samples available at - https://github.com/hyperledger/fabric-samples/tree/release-1.1/chaincode/fabcar/go.
 
-### 5. Perform Invoke and Query on the network
+### 5. Perform Invoke and Query on network
 
 Blockchain network has been setup completely and is ready to use. Now we can test the network by performing invoke and query on the network. The `fabcar` chaincode allows us to create a new asset which is a car. For test purpose, invoke operation is performed to create a new asset in the network and query operation is performed to list the assets of the network. Perform the following steps to check the same.
 
