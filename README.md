@@ -11,7 +11,7 @@ When the reader has completed this pattern, they will understand how to create, 
 
 ## Flow
 
-   ![](images/architecture.png)
+      ![](images/architecture.png)
 
 1. Generate the artifacts using cryptogen and configtx for peers and channel in network. Currently these are already generated and provided in the code repository to use as-is.
 2. Build the network using docker-compose and the generated artifacts.
@@ -50,7 +50,7 @@ Follow these steps to setup and run this code pattern.
 
 1. [Setup the Blockchain Network](#1-setup-the-blockchain-network)
 2. [Build the client based on Fabric Java SDK](#2-build-the-client-based-on-fabric-java-sdk)
-3. [Create and Initialize the channel](#3-create-and-initialize the-channel)
+3. [Create and Initialize the channel](#3-create-and-initialize-the-channel)
 4. [Deploy and Instantiate the chaincode](#4-deploy-and-instantiate-the-chaincode)
 5. [Perform Invoke and Query on network](#5-perform-invoke-and-query-on-network)
 
