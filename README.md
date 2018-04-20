@@ -41,13 +41,14 @@ TODO
 Follow these steps to setup and run this code pattern. 
 
 1. [Setup the Blockchain Network](#1-setup-the-blockchain-network)
-2. Build the jar
+2. Build the client based on Fabric Java SDK
 3. Create and Initialize the Channel
 4. Deploy and Instantiate the Chaincode
 5. Perform Invoke and Query on network
 
 ### 1. Setup the Blockchain Network
 
+* [Clone this repo](https://github.com/IBM/blockchain-application-using-fabric-java-sdk)
 To build be the blockchain network, the first step is to generate artifacts for peers and channels using cryptogen and configtx. Utilities used and steps are explained [here](http://hyperledger-fabric.readthedocs.io/en/release-1.0/build_network.html). In this pattern all required artifacts for the peers and channel of the network are already generated and provided to use as-is. Artifacts can be located at:
 
 ```
@@ -70,27 +71,36 @@ cd network
 ./teardown.sh
 ```
 
-### 2. Build the jar
+### 2. Build the client based on Fabric Java SDK
 
-Previous step creates all required docker images with the required configuration. To work with this network using hyperledger fabric SDK java, perform the following step.
+The previous step creates all required docker images with the required configuration. To work with this network using hyperledger fabric SDK java, perform the following step.
 
+* The java client sources are present in the folder `java` of the repo.
+* Open a command terminal and navigate to the `java` directory in the repo. Run the command `mvn install`.
 ```
 cd java
 mvn install
 ```
 
-It will create a jar file named as `...`. Copy this built jar into network_resources directory, so that it can use the required artifacts during execution.
+A jar file `blockchain-java-sdk-0.0.1-SNAPSHOT-jar-with-dependencies.jar` is built and can be found under the `target` folder. This jar can be renamed to `blockchain-client.jar` to keep the name short. 
 
 ```
-cp <jar file name> ../network_resources
+cd target
+cp blockchain-java-sdk-0.0.1-SNAPSHOT-jar-with-dependencies.jar blockchain-client.jar
 ```
+Copy this built jar into network_resources directory. This is required as the java code can access required artifacts during execution.
+```
+cp blockchain-client.jar ../../network_resources
+```
+
 
 ### 3. Create and Initialize the Channel
 
 In this code pattern, we create one channel `mychannel` which is joined by all four peers. To create and initialize the channel, run the following command.
 
 ```
-java -jar <...>
+cd ../../network_resources
+java -cp blockchain-client.jar org.app.network.CreateChannel
 ```
 
 ### 4. Deploy and Instantiate the Chaincode
@@ -98,7 +108,7 @@ java -jar <...>
 This code pattern uses a sample chaincode `fabcar` to demo the usage of Hyperledger Fabric SDK Java APIs. To deploy and instantiate the chaincode, execute the following command.
 
 ```
-java -jar <...>
+java -cp blockchain-client.jar org.app.network.DeployInstantiateChaincode
 ```
 
 ### 5. Perform Invoke and Query on the Network
@@ -106,11 +116,7 @@ java -jar <...>
 Blockchain network has been setup completely. Now we can test the network by performing invoke and query on the network. The `fabcar` chaincode allows us to create a new asset which is a car. For test purpose, invoke operation is performed to create a new asset in the network and query operation is performed to list the assets of the network. Perform the following steps to check the same.
 
 ```
-# Invoke
-java -jar <...>
-
-# Query
-java -jar <...>
+java -cp blockchain-client.jar org.app.chaincode.invocation.InvokeQueryChaincode
 ```
 
 The output of invoke and query should be as shown below.
