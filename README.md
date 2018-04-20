@@ -49,6 +49,7 @@ Follow these steps to setup and run this code pattern.
 ### 1. Setup the Blockchain Network
 
 * [Clone this repo](https://github.com/IBM/blockchain-application-using-fabric-java-sdk)
+
 To build be the blockchain network, the first step is to generate artifacts for peers and channels using cryptogen and configtx. Utilities used and steps are explained [here](http://hyperledger-fabric.readthedocs.io/en/release-1.0/build_network.html). In this pattern all required artifacts for the peers and channel of the network are already generated and provided to use as-is. Artifacts can be located at:
 
 ```
@@ -107,6 +108,7 @@ java -cp blockchain-client.jar org.app.network.CreateChannel
 
 This code pattern uses a sample chaincode `fabcar` to demo the usage of Hyperledger Fabric SDK Java APIs. To deploy and instantiate the chaincode, execute the following command.
 
+| Note: The chaincode has been taken from the fabric sample - https://github.com/hyperledger/fabric-samples/tree/release-1.1/chaincode/fabcar/go.
 ```
 java -cp blockchain-client.jar org.app.network.DeployInstantiateChaincode
 ```
