@@ -3,9 +3,9 @@
 
 Blockchain is a shared, immutable ledger for recording the history of transactions. The Linux Foundation’s Hyperledger Fabric, the software implementation of blockchain IBM is committed to, is a permissioned network. Hyperledger Fabric is a platform for distributed ledger solutions underpinned by a modular architecture delivering high degrees of confidentiality, resiliency, flexibility and scalability. 
 
-Hyperledger Fabric offers a number of SDKs for a wide variety of programming languages like the Node.js SDK and Java SDKs. This code pattern explains the methodology to create and deploy a blockchain network using fabric sdk java. It would be helpful for the Java developers, who started to look into Hyperledger Fabric platform and would like to use fabric sdk java for their projects. The SDK helps facilitate Java applications to manage the lifecycle of Hyperledger channels and user chaincode. The SDK also provides a means to execute user chaincode, query blocks and transactions on the channel, and monitor events on the channel.
+In a blockchain application, blockchain network works as a back-end and application has an front-end to communicate with the network. To set up the communication between front-end and back-end, Hyperledger Fabric offers a number of SDKs for a wide variety of programming languages like the Node.js SDK and Java SDKs. This code pattern explains the methodology to create and deploy a blockchain network using fabric sdk java. It would be helpful for the Java developers, who started to look into Hyperledger Fabric platform and would like to use fabric sdk java for their projects. The SDK helps facilitate Java applications to manage the lifecycle of Hyperledger channels and user chaincode. The SDK also provides a means to execute user chaincode, query blocks and transactions on the channel, and monitor events on the channel.
 
-When the reader has completed this pattern, they will understand how to create and deploy a blockchain network using Hyperledger fabric SDK java.
+When the reader has completed this pattern, they will understand how to create and deploy a blockchain network using Hyperledger Fabric SDK Java.
 
 ## Flow
 
@@ -40,15 +40,90 @@ TODO
 
 Follow these steps to setup and run this code pattern. 
 
-1. Setup the Blockchain Network
+1. [Setup the Blockchain Network](#1-setup-the-blockchain-network)
 2. Build the jar
 3. Create and Initialize the Channel
 4. Deploy and Instantiate the Chaincode
-5. Test the Blockchain Network - Invoke/Query
+5. Perform Invoke and Query on network
 
 ### 1. Setup the Blockchain Network
 
-### Troubleshooting
+To build be the blockchain network, the first step is to generate artifacts for peers and channels using cryptogen and configtx. Utilities used and steps are explained [here](http://hyperledger-fabric.readthedocs.io/en/release-1.0/build_network.html). In this pattern all required artifacts for the peers and channel of the network are already generated and provided to use as-is. Artifacts can be located at:
+
+```
+network_resources/crypto-config
+network_resources/config
+````
+
+The scripts are provided to build the network under `network/` directory. The `network/docker-compose.yaml` file defines the blockchain network topology. This pattern provisions a sample Hyperledger Fabric network consisting of two organizations, each maintaining two peer node, one certificate authority and a solo ordering service. Run the scripts as follows.
+
+```
+cd network
+
+# To build the network
+./build.sh
+
+# To stop the network
+./stop.sh
+
+# To delete the network completely
+./teardown.sh
+```
+
+### 2. Build the jar
+
+Previous step creates all required docker images with the required configuration. To work with this network using hyperledger fabric SDK java, perform the following step.
+
+```
+cd java
+mvn install
+```
+
+It will create a jar file named as `...`. Copy this built jar into network_resources directory, so that it can use the required artifacts during execution.
+
+```
+cp <jar file name> ../network_resources
+```
+
+### 3. Create and Initialize the Channel
+
+In this code pattern, we create one channel `mychannel` which is joined by all four peers. To create and initialize the channel, run the following command.
+
+```
+java -jar <...>
+```
+
+### 4. Deploy and Instantiate the Chaincode
+
+This code pattern uses a sample chaincode `fabcar` to demo the usage of Hyperledger Fabric SDK Java APIs. To deploy and instantiate the chaincode, execute the following command.
+
+```
+java -jar <...>
+```
+
+### 5. Perform Invoke and Query on the Network
+
+Blockchain network has been setup completely. Now we can test the network by performing invoke and query on the network. The `fabcar` chaincode allows us to create a new asset which is a car. For test purpose, invoke operation is performed to create a new asset in the network and query operation is performed to list the assets of the network. Perform the following steps to check the same.
+
+```
+# Invoke
+java -jar <...>
+
+# Query
+java -jar <...>
+```
+
+The output of invoke and query should be as shown below.
+
+```
+snapshot
+```
+
+
+
+## Troubleshooting
+
+[See DEBUGGING.md.](DEBUGGING.md)
 
 ## License
 [Apache 2.0](LICENSE)
