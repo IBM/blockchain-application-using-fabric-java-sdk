@@ -155,7 +155,7 @@ services:
       - CORE_PEER_LOCALMSPID=Org2MSP
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/msp
       - CORE_PEER_ADDRESS=peer1.org2.example.com:7051
-      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=  network_custom    
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=network_custom    
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric
     command: peer node start
     networks:
