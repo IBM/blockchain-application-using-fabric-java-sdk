@@ -73,6 +73,7 @@ The automated scripts are provided to build the network under `network` director
 
    ```
    cd network
+   chmod +x build.sh
    ./build.sh
    ```
 
@@ -80,6 +81,7 @@ To stop the running network, run the following script.
 
    ```
    cd network
+   chmod +x stop.sh
    ./stop.sh
    ```
 
@@ -87,6 +89,7 @@ To delete the network completely, following script need to execute.
 
    ```
    cd network
+   chmod +x teardown.sh
    ./teardown.sh
    ```
 
