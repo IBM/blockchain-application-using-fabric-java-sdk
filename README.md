@@ -54,7 +54,8 @@ Follow these steps to setup and run this code pattern.
 2. [Build the client based on Fabric Java SDK](#2-build-the-client-based-on-fabric-java-sdk)
 3. [Create and Initialize the channel](#3-create-and-initialize-the-channel)
 4. [Deploy and Instantiate the chaincode](#4-deploy-and-instantiate-the-chaincode)
-5. [Perform Invoke and Query on network](#5-perform-invoke-and-query-on-network)
+5. [Register and enroll users](#5-register-and-enroll-users)
+6. [Perform Invoke and Query on network](#6-perform-invoke-and-query-on-network)
 
 ### 1. Setup the Blockchain Network
 
@@ -155,21 +156,58 @@ This code pattern uses a sample chaincode `fabcar` to demo the usage of Hyperled
    
    Output:
    
-   ```Apr 20, 2018 5:12:00 PM org.app.client.FabricClient deployChainCode
+   ```Apr 23, 2018 10:25:22 AM org.app.client.FabricClient deployChainCode
       INFO: Deploying chaincode fabcar using Fabric client Org1MSP admin
-      Apr 20, 2018 5:12:01 PM org.app.client.FabricClient deployChainCode
+      Apr 23, 2018 10:25:22 AM org.app.network.DeployInstantiateChaincode main
+      INFO: fabcar- Chain code deployment SUCCESS
+      Apr 23, 2018 10:25:22 AM org.app.network.DeployInstantiateChaincode main
+      INFO: fabcar- Chain code deployment SUCCESS
+      Apr 23, 2018 10:25:22 AM org.app.client.FabricClient deployChainCode
       INFO: Deploying chaincode fabcar using Fabric client Org2MSP admin
-      Apr 20, 2018 5:12:01 PM org.app.client.ChannelClient instantiateChainCode
+      Apr 23, 2018 10:25:22 AM org.app.network.DeployInstantiateChaincode main
+      INFO: fabcar- Chain code deployment SUCCESS
+      Apr 23, 2018 10:25:22 AM org.app.network.DeployInstantiateChaincode main
+      INFO: fabcar- Chain code deployment SUCCESS
+      Apr 23, 2018 10:25:22 AM org.app.client.ChannelClient instantiateChainCode
       INFO: Instantiate proposal request fabcar on channel mychannel with Fabric client Org2MSP admin
-      Apr 20, 2018 5:12:01 PM org.app.client.ChannelClient instantiateChainCode
+      Apr 23, 2018 10:25:22 AM org.app.client.ChannelClient instantiateChainCode
       INFO: Instantiating Chaincode ID fabcar on channel mychannel
-      Apr 20, 2018 5:12:44 PM org.app.client.ChannelClient instantiateChainCode
-      INFO: Chaincode fabcar on channel mychannel instantiation java.util.concurrent.CompletableFuture@4d0d9fe7[Not completed]
+      Apr 23, 2018 10:25:25 AM org.app.client.ChannelClient instantiateChainCode
+      INFO: Chaincode fabcar on channel mychannel instantiation java.util.concurrent.CompletableFuture@723ca036[Not completed]
+      Apr 23, 2018 10:25:25 AM org.app.network.DeployInstantiateChaincode main
+      INFO: fabcar- Chain code instantiation SUCCESS
+      Apr 23, 2018 10:25:25 AM org.app.network.DeployInstantiateChaincode main
+      INFO: fabcar- Chain code instantiation SUCCESS
+      Apr 23, 2018 10:25:25 AM org.app.network.DeployInstantiateChaincode main
+      INFO: fabcar- Chain code instantiation SUCCESS
+      Apr 23, 2018 10:25:25 AM org.app.network.DeployInstantiateChaincode main
+      INFO: fabcar- Chain code instantiation SUCCESS
    ```
    
    > **Note:** The chaincode fabcar.go was taken from the fabric samples available at - https://github.com/hyperledger/fabric-samples/tree/release-1.1/chaincode/fabcar/go.
 
-### 5. Perform Invoke and Query on network
+### 5. Register and enroll users
+A new user can be registered and enrolled to an MSP. Execute the below command to register a new user and enroll to Org1MSP.
+   ```
+   java -cp blockchain-client.jar org.app.user.RegisterEnrollUser
+   ```
+   
+   Output:
+   
+   ```Apr 23, 2018 10:26:34 AM org.app.util.Util deleteDirectory
+      INFO: Deleting - users
+      log4j:WARN No appenders could be found for logger (org.hyperledger.fabric.sdk.helper.Config).
+      log4j:WARN Please initialize the log4j system properly.
+      log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+      Apr 23, 2018 10:26:35 AM org.app.client.CAClient enrollAdminUser
+      INFO: CA -http://localhost:7054 Enrolled Admin.
+      Apr 23, 2018 10:26:35 AM org.app.client.CAClient registerUser
+      INFO: CA -http://localhost:7054 Registered User - user1524459395783
+      Apr 23, 2018 10:26:36 AM org.app.client.CAClient enrollUser
+      INFO: CA -http://localhost:7054 Enrolled User - user1524459395783
+   ```
+
+### 6. Perform Invoke and Query on network
 
 Blockchain network has been setup completely and is ready to use. Now we can test the network by performing invoke and query on the network. The `fabcar` chaincode allows us to create a new asset which is a car. For test purpose, invoke operation is performed to create a new asset in the network and query operation is performed to list the assets of the network. Perform the following steps to check the same.
 
@@ -209,7 +247,7 @@ Blockchain network has been setup completely and is ready to use. Now we can tes
       Apr 20, 2018 5:13:29 PM org.app.chaincode.invocation.QueryChaincode main
       INFO: [{"Key":"CAR1", "Record":{"make":"Chevy","model":"Volt","colour":"Red","owner":"Nick"}}]
       Apr 20, 2018 5:13:39 PM org.app.chaincode.invocation.QueryChaincode main
-      INFO: Querying for a car - [Ljava.lang.String;@77d2e85
+      INFO: Querying for a car - CAR1
       Apr 20, 2018 5:13:39 PM org.app.client.ChannelClient queryByChainCode
       INFO: Querying queryCar on channel mychannel
       Apr 20, 2018 5:13:39 PM org.app.chaincode.invocation.QueryChaincode main
