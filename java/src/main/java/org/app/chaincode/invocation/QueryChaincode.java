@@ -15,8 +15,6 @@ package org.app.chaincode.invocation;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,13 +24,11 @@ import org.app.client.FabricClient;
 import org.app.config.Config;
 import org.app.user.UserContext;
 import org.app.util.Util;
-import org.hyperledger.fabric.sdk.ChaincodeID;
 import org.hyperledger.fabric.sdk.Channel;
 import org.hyperledger.fabric.sdk.EventHub;
 import org.hyperledger.fabric.sdk.Orderer;
 import org.hyperledger.fabric.sdk.Peer;
 import org.hyperledger.fabric.sdk.ProposalResponse;
-import org.hyperledger.fabric.sdk.TransactionProposalRequest;
 
 /**
  * 
@@ -79,7 +75,7 @@ public class QueryChaincode {
 
 			Thread.sleep(10000);
 			String[] args1 = {"CAR1"};
-			Logger.getLogger(QueryChaincode.class.getName()).log(Level.INFO, "Querying for a car - " + args1);
+			Logger.getLogger(QueryChaincode.class.getName()).log(Level.INFO, "Querying for a car - " + args1[0]);
 			
 			Collection<ProposalResponse>  responses1Query = channelClient.queryByChainCode("fabcar", "queryCar", args1);
 			for (ProposalResponse pres : responses1Query) {

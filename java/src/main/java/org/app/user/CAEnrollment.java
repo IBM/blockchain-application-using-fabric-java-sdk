@@ -14,7 +14,6 @@
 package org.app.user;
 
 import java.io.Serializable;
-import java.security.KeyPair;
 import java.security.PrivateKey;
 
 import org.hyperledger.fabric.sdk.Enrollment;

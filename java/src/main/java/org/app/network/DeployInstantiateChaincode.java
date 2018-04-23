@@ -16,10 +16,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.app.client.CAClient;
 import org.app.client.ChannelClient;
 import org.app.client.FabricClient;
 import org.app.config.Config;
