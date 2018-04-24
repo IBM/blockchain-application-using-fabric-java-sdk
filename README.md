@@ -9,6 +9,7 @@ It would be helpful for the Java developers, who started to look into Hyperledge
 When the reader has completed this pattern, they will understand how to create, deploy and test a blockchain network using Hyperledger Fabric SDK Java. This pattern will provision a Hyperledger Fabric network consisting of two organizations, each maintaining two peer node, two certificate authorities (ca) for each organization and a solo ordering service. The following aspects will be demonstrated in this code pattern:
 * Create and initialize channel
 * Install and instantiate chain code 
+* Register and enroll the users
 * Perform invoke and query on the blockchain network.
 
 ## Flow
@@ -20,6 +21,7 @@ When the reader has completed this pattern, they will understand how to create, 
 3. Use Fabric Java SDK APIs to work with and manage the network. 
     * Create and initialize the channel
     * Install and instantiate the chaincode
+    * Register and enroll the users
     * Perform invoke and query to test the network
 
 
@@ -72,7 +74,7 @@ To build the blockchain network, the first step is to generate artifacts for pee
    network_resources/config
    ````
 
-The automated scripts are provided to build the network under `network` directory. The `network/docker-compose.yaml` file defines the blockchain network topology. This pattern provisions a Hyperledger Fabric network consisting of two organizations, each maintaining two peer node, two certificate authorities for each organization and a solo ordering service. Need to run the scripts as follows to build the network.
+The automated scripts to build the network are provided under `network` directory. The `network/docker-compose.yaml` file defines the blockchain network topology. This pattern provisions a Hyperledger Fabric network consisting of two organizations, each maintaining two peer node, two certificate authorities for each organization and a solo ordering service. Need to run the script as follows to build the network.
 
    ```
    cd network
@@ -98,7 +100,7 @@ To delete the network completely, following script need to execute.
 
 ### 2. Build the client based on Fabric Java SDK
 
-The previous step creates all required docker images with the required configuration. To work with this network using hyperledger fabric SDK java, perform the following steps.
+The previous step creates all required docker images with the appropriate configuration. To work with this network using hyperledger fabric SDK java, perform the following steps.
 
 * The java client sources are present in the folder `java` of the repo.
 * Open a command terminal and navigate to the `java` directory in the repo. Run the command `mvn install`.
@@ -115,7 +117,7 @@ A jar file `blockchain-java-sdk-0.0.1-SNAPSHOT-jar-with-dependencies.jar` is bui
    cp blockchain-java-sdk-0.0.1-SNAPSHOT-jar-with-dependencies.jar blockchain-client.jar
    ```
    
-Copy this built jar into network_resources directory. This is required as the java code can access required artifacts during execution.
+Copy this built jar into `network_resources` directory. This is required as the java code can access required artifacts during execution.
 
    ```
    cp blockchain-client.jar ../../network_resources
@@ -187,7 +189,9 @@ This code pattern uses a sample chaincode `fabcar` to demo the usage of Hyperled
    > **Note:** The chaincode fabcar.go was taken from the fabric samples available at - https://github.com/hyperledger/fabric-samples/tree/release-1.1/chaincode/fabcar/go.
 
 ### 5. Register and enroll users
+
 A new user can be registered and enrolled to an MSP. Execute the below command to register a new user and enroll to Org1MSP.
+
    ```
    java -cp blockchain-client.jar org.app.user.RegisterEnrollUser
    ```
@@ -209,7 +213,7 @@ A new user can be registered and enrolled to an MSP. Execute the below command t
 
 ### 6. Perform Invoke and Query on network
 
-Blockchain network has been setup completely and is ready to use. Now we can test the network by performing invoke and query on the network. The `fabcar` chaincode allows us to create a new asset which is a car. For test purpose, invoke operation is performed to create a new asset in the network and query operation is performed to list the assets of the network. Perform the following steps to check the same.
+Blockchain network has been setup completely and is ready to use. Now we can test the network by performing invoke and query on the network. The `fabcar` chaincode allows us to create a new asset which is a car. For test purpose, invoke operation is performed to create a new asset in the network and query operation is performed to list the asset of the network. Perform the following steps to check the same.
 
    ```
    java -cp blockchain-client.jar org.app.chaincode.invocation.InvokeChaincode
