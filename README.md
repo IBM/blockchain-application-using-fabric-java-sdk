@@ -18,7 +18,7 @@ When the reader has completed this pattern, they will understand how to create, 
 
 1. Generate the artifacts using cryptogen and configtx for peers and channel in network. Currently these are already generated and provided in the code repository to use as-is.
 2. Build the network using docker-compose and the generated artifacts.
-3. Use Fabric Java SDK APIs to work with and manage the network. 
+3. Use Hyperledger Fabric Java SDK APIs to work with and manage the network. 
     * Create and initialize the channel
     * Install and instantiate the chaincode
     * Register and enroll the users
