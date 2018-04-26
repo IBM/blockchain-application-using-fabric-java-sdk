@@ -40,7 +40,7 @@ When the reader has completed this pattern, they will understand how to create, 
 * [Java](https://en.wikipedia.org/wiki/Java_(programming_language)): Java is a general-purpose computer-programming language that is concurrent, class-based and object-oriented.
 
 ## Watch the Video
-[![](http://img.youtube.com/vi/vCTabgkvfS0/0.jpg)](https://youtu.be/vCTabgkvfS0)
+[![](http://img.youtube.com/vi/vCTabgkvfS0/0.jpg)](https://youtu.be/vCTabgkvfS0)]
 
 ## Pre-requisites
 
