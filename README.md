@@ -47,6 +47,7 @@ When the reader has completed this pattern, they will understand how to create, 
 * [Docker](https://www.docker.com/get-docker) - v1.13 or higher
 * [Docker Compose](https://docs.docker.com/compose/overview/) - v1.8 or higher
 * [Git Client](https://git-scm.com/downloads) - needed for clone commands
+* [Maven](http://maven.apache.org/download.cgi) - needed to build the client
 
 ## Steps
 
