@@ -1,10 +1,10 @@
 #!/bin/bash
 #
 # Exit on first error, print all commands.
-#set -e
+set -e
 
 #Start from here
-echo "Stopping the previous network (if any)"
+echo -e "\nStopping the previous network (if any)"
 docker-compose -f docker-compose.yml down
 
 # If need to re-generate the artifacts, uncomment the following lines and run
@@ -17,8 +17,8 @@ docker-compose -f docker-compose.yml down
 # configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./config/Org2MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org2MSP
 #
 # Create and Start the Docker containers for the network
-echo "Setting up the network"
+echo -e "\nSetting up the Hyperledger Fabric 1.1 network"
 docker-compose -f docker-compose.yml up -d
 sleep 15
-echo "Network setup completed!!"
+echo -e "\nNetwork setup completed!!\n"
 
