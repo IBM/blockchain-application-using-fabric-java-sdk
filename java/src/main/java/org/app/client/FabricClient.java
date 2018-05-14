@@ -14,6 +14,7 @@ package org.app.client;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -56,8 +57,13 @@ public class FabricClient {
 	 * @param context
 	 * @throws CryptoException
 	 * @throws InvalidArgumentException
+	 * @throws InvocationTargetException 
+	 * @throws NoSuchMethodException 
+	 * @throws ClassNotFoundException 
+	 * @throws InstantiationException 
+	 * @throws IllegalAccessException 
 	 */
-	public FabricClient(User context) throws CryptoException, InvalidArgumentException {
+	public FabricClient(User context) throws CryptoException, InvalidArgumentException, IllegalAccessException, InstantiationException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException {
 		CryptoSuite cryptoSuite = CryptoSuite.Factory.getCryptoSuite();
 		// setup the client
 		instance = HFClient.createNewInstance();

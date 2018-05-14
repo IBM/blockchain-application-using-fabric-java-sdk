@@ -12,6 +12,7 @@
  */       
 package org.app.client;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -20,6 +21,8 @@ import java.util.logging.Logger;
 import org.app.user.UserContext;
 import org.app.util.Util;
 import org.hyperledger.fabric.sdk.Enrollment;
+import org.hyperledger.fabric.sdk.exception.CryptoException;
+import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
 import org.hyperledger.fabric.sdk.security.CryptoSuite;
 import org.hyperledger.fabric_ca.sdk.HFCAClient;
 import org.hyperledger.fabric_ca.sdk.RegistrationRequest;
@@ -59,14 +62,21 @@ public class CAClient {
 	 * @param caUrl 
 	 * @param caProperties
 	 * @throws MalformedURLException
+	 * @throws InvocationTargetException 
+	 * @throws NoSuchMethodException 
+	 * @throws InvalidArgumentException 
+	 * @throws CryptoException 
+	 * @throws ClassNotFoundException 
+	 * @throws InstantiationException 
+	 * @throws IllegalAccessException 
 	 */
-	public CAClient(String caUrl, Properties caProperties) throws MalformedURLException {
+	public CAClient(String caUrl, Properties caProperties) throws MalformedURLException, IllegalAccessException, InstantiationException, ClassNotFoundException, CryptoException, InvalidArgumentException, NoSuchMethodException, InvocationTargetException {
 		this.caUrl = caUrl;
 		this.caProperties = caProperties;
 		init();
 	}
 
-	public void init() throws MalformedURLException {
+	public void init() throws MalformedURLException, IllegalAccessException, InstantiationException, ClassNotFoundException, CryptoException, InvalidArgumentException, NoSuchMethodException, InvocationTargetException {
 		CryptoSuite cryptoSuite = CryptoSuite.Factory.getCryptoSuite();
 		instance = HFCAClient.createNewInstance(caUrl, caProperties);
 		instance.setCryptoSuite(cryptoSuite);
