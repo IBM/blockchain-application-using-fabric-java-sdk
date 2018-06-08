@@ -131,7 +131,7 @@ Copy this built jar into `network_resources` directory. This is required as the 
 
 ### 3. Create and Initialize the channel
 
-In this code pattern, we create one channel `mychannel` which is joined by all four peers. To create and initialize the channel, run the following command.
+In this code pattern, we create one channel `mychannel` which is joined by all four peers. The java source code can be seen at  `src/main/java/org/app/network/CreateChannel.java`. To create and initialize the channel, run the following command.
 
    ```
    cd ../../network_resources
@@ -248,21 +248,22 @@ Blockchain network has been setup completely and is ready to use. Now we can tes
    
    Output:
    
-   ```Apr 20, 2018 5:13:28 PM org.app.client.CAClient enrollAdminUser
-      INFO: CA -http://localhost:7054 Enrolled Admin.
-      Apr 20, 2018 5:13:29 PM org.app.chaincode.invocation.QueryChaincode main
-      INFO: Querying for all cars ...
-      Apr 20, 2018 5:13:29 PM org.app.client.ChannelClient queryByChainCode
-      INFO: Querying queryAllCars on channel mychannel
-      Apr 20, 2018 5:13:29 PM org.app.chaincode.invocation.QueryChaincode main
-      INFO: [{"Key":"CAR1", "Record":{"make":"Chevy","model":"Volt","colour":"Red","owner":"Nick"}}]
-      Apr 20, 2018 5:13:39 PM org.app.chaincode.invocation.QueryChaincode main
-      INFO: Querying for a car - CAR1
-      Apr 20, 2018 5:13:39 PM org.app.client.ChannelClient queryByChainCode
-      INFO: Querying queryCar on channel mychannel
-      Apr 20, 2018 5:13:39 PM org.app.chaincode.invocation.QueryChaincode main
-      INFO: {"make":"Chevy","model":"Volt","colour":"Red","owner":"Nick"}
-   ```
+   <pre>
+    Apr 20, 2018 5:13:28 PM org.app.client.CAClient enrollAdminUser
+    INFO: CA -http://localhost:7054 Enrolled Admin.
+    Apr 20, 2018 5:13:29 PM org.app.chaincode.invocation.QueryChaincode main
+    INFO: <b>Querying for all cars ...</b>
+    Apr 20, 2018 5:13:29 PM org.app.client.ChannelClient queryByChainCode
+    INFO: Querying queryAllCars on channel mychannel
+    Apr 20, 2018 5:13:29 PM org.app.chaincode.invocation.QueryChaincode main
+    INFO: <b>[{"Key":"CAR1", "Record":{"make":"Chevy","model":"Volt","colour":"Red","owner":"Nick"}}]</b>
+    Apr 20, 2018 5:13:39 PM org.app.chaincode.invocation.QueryChaincode main
+    INFO: <b>Querying for a car - CAR1</b>
+    Apr 20, 2018 5:13:39 PM org.app.client.ChannelClient queryByChainCode
+    INFO: Querying queryCar on channel mychannel
+    Apr 20, 2018 5:13:39 PM org.app.chaincode.invocation.QueryChaincode main
+    INFO: <b>{"make":"Chevy","model":"Volt","colour":"Red","owner":"Nick"}</b>
+   </pre>
 
 ## Troubleshooting
 
