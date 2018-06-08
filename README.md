@@ -49,7 +49,7 @@ When the reader has completed this pattern, they will understand how to create, 
 * [Docker](https://www.docker.com/get-docker) - v1.13 or higher
 * [Docker Compose](https://docs.docker.com/compose/overview/) - v1.8 or higher
 * [Git Client](https://git-scm.com/downloads) - needed for clone commands
-* [Maven](http://maven.apache.org/download.cgi) - needed to build the client
+* [Maven](http://maven.apache.org/download.cgi) - needed to build the client. Maven is a build automation tool used primarily for Java projects. Maven addresses two aspects of building software: first, it describes how software is built, and second, it describes its dependencies.
 
 ## Steps
 
@@ -79,6 +79,8 @@ To build the blockchain network, the first step is to generate artifacts for pee
 
 The automated scripts to build the network are provided under `network` directory. The `network/docker-compose.yaml` file defines the blockchain network topology. This pattern provisions a Hyperledger Fabric 1.1 network consisting of two organizations, each maintaining two peer node, two certificate authorities for each organization and a solo ordering service. Need to run the script as follows to build the network.
 
+> **Note:** Please clean up the old docker iamges (if any) from your environment as it may leads to other issues.
+
    ```
    cd network
    chmod +x build.sh
@@ -106,7 +108,7 @@ To delete the network completely, following script need to execute.
 The previous step creates all required docker images with the appropriate configuration. To work with this network using Hyperledger Fabric SDK java 1.0.0, perform the following steps.
 
 * The java client sources are present in the folder `java` of the repo.
-* Please check your environment before executing the next step. You should able to run `mvn` commands properly.
+* Check your environment before executing the next step. Make sure, you are able to run `mvn` commands properly.
 * Open a command terminal and navigate to the `java` directory in the repo. Run the command `mvn install`.
 
    ```
