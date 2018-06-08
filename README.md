@@ -79,7 +79,7 @@ To build the blockchain network, the first step is to generate artifacts for pee
 
 The automated scripts to build the network are provided under `network` directory. The `network/docker-compose.yaml` file defines the blockchain network topology. This pattern provisions a Hyperledger Fabric 1.1 network consisting of two organizations, each maintaining two peer node, two certificate authorities for each organization and a solo ordering service. Need to run the script as follows to build the network.
 
-> **Note:** Please clean up the old docker iamges (if any) from your environment as it may leads to other issues.
+> **Note:** Please clean up the old docker images (if any) from your environment otherwise you may get errors while setting up network.
 
    ```
    cd network
