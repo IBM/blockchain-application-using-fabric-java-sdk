@@ -105,10 +105,15 @@ To delete the network completely, following script need to execute.
 
 ### 2. Build the client based on Fabric Java SDK
 
-The previous step creates all required docker images with the appropriate configuration. To work with this network using Hyperledger Fabric SDK java 1.0.0, perform the following steps.
+The previous step creates all required docker images with the appropriate configuration.
 
+**Java Client**
 * The java client sources are present in the folder `java` of the repo.
 * Check your environment before executing the next step. Make sure, you are able to run `mvn` commands properly.
+   > If `mvn` commands fails, please refer to [Pre-requisites](#pre-requisites) to install maven.
+
+To work with the deployed network using Hyperledger Fabric SDK java 1.0.0, perform the following steps.
+
 * Open a command terminal and navigate to the `java` directory in the repo. Run the command `mvn install`.
 
    ```
