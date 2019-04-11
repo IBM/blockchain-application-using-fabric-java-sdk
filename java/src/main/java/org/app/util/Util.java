@@ -131,7 +131,7 @@ public class Util {
 
 			byte[] encoded = DatatypeConverter.parseBase64Binary(keyBuilder.toString());
 			PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(encoded);
-			KeyFactory kf = KeyFactory.getInstance("ECDSA");
+			KeyFactory kf = KeyFactory.getInstance("EC");
 			key = kf.generatePrivate(keySpec);
 		} finally {
 			isKey.close();

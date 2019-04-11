@@ -7,7 +7,7 @@ networks:
 services:
 
   ca.org1.example.com:
-    image: hyperledger/fabric-ca:x86_64-1.1.0
+    image: hyperledger/fabric-ca:amd64-1.4.0
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org1
@@ -23,7 +23,7 @@ services:
       - custom
 
   ca.org2.example.com:
-    image: hyperledger/fabric-ca:x86_64-1.1.0
+    image: hyperledger/fabric-ca:amd64-1.4.0
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org2
@@ -40,7 +40,7 @@ services:
 
   orderer.example.com:
     container_name: orderer.example.com
-    image: hyperledger/fabric-orderer:x86_64-1.1.0
+    image: hyperledger/fabric-orderer:amd64-1.4.0
     environment:
       - ORDERER_GENERAL_LOGLEVEL=debug
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
@@ -62,7 +62,7 @@ services:
 
   peer0.org1.example.com:
     container_name: peer0.org1.example.com
-    image: hyperledger/fabric-peer:x86_64-1.1.0
+    image: hyperledger/fabric-peer:amd64-1.4.0
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - CORE_PEER_ID=peer0.org1.example.com
@@ -92,7 +92,7 @@ services:
 
   peer1.org1.example.com:
     container_name: peer1.org1.example.com
-    image: hyperledger/fabric-peer:x86_64-1.1.0
+    image: hyperledger/fabric-peer:amd64-1.4.0
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - CORE_PEER_ID=peer1.org1.example.com
@@ -119,7 +119,7 @@ services:
 
   peer0.org2.example.com:
     container_name: peer0.org2.example.com
-    image: hyperledger/fabric-peer:x86_64-1.1.0
+    image: hyperledger/fabric-peer:amd64-1.4.0
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - CORE_PEER_ID=peer0.org2.example.com
@@ -146,7 +146,7 @@ services:
 
   peer1.org2.example.com:
     container_name: peer1.org2.example.com
-    image: hyperledger/fabric-peer:x86_64-1.1.0
+    image: hyperledger/fabric-peer:amd64-1.4.0
     environment:
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - CORE_PEER_ID=peer1.org2.example.com
