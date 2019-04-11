@@ -104,3 +104,4 @@ network_resources/crypto-config
 network_resources/crypto-config/*
 *.tx
 *.block
+*.db
