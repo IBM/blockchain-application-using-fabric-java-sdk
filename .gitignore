@@ -99,4 +99,8 @@ Temporary Items
 .apdisk
 
 network_resources/config
+network_resources/config/*
 network_resources/crypto-config
+network_resources/crypto-config/*
+*.tx
+*.block
