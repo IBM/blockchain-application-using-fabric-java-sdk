@@ -98,10 +98,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-network_resources/config
-network_resources/config/*
-network_resources/crypto-config
-network_resources/crypto-config/*
+**/config
+**/config/*
+**/crypto-config
+**/crypto-config/*
 *.tx
 *.block
 *.db
