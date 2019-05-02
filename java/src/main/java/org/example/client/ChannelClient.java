@@ -11,7 +11,7 @@
  *  limitations under the License.
  */
 
-package org.app.client;
+package org.example.client;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 

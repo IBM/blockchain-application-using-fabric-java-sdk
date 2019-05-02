@@ -11,7 +11,7 @@
  *  limitations under the License.
  */
 
-package org.app.util;
+package org.example.util;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -34,8 +34,8 @@ import java.util.logging.Logger;
 
 import javax.xml.bind.DatatypeConverter;
 
-import org.app.user.CAEnrollment;
-import org.app.user.UserContext;
+import org.example.user.CAEnrollment;
+import org.example.user.UserContext;
 import org.hyperledger.fabric.sdk.exception.CryptoException;
 
 /**

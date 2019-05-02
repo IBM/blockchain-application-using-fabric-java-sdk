@@ -11,7 +11,7 @@
  *  limitations under the License.
  */
 
-package org.app.user;
+package org.example.user;
 
 import java.io.Serializable;
 import java.security.PrivateKey;

@@ -10,7 +10,7 @@
  *  See the License for the specific language governing permissions and 
  *  limitations under the License.
  */
-package org.app.network;
+package org.example.network;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -19,11 +19,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.app.client.ChannelClient;
-import org.app.client.FabricClient;
-import org.app.config.Config;
-import org.app.user.UserContext;
-import org.app.util.Util;
+import org.example.client.ChannelClient;
+import org.example.client.FabricClient;
+import org.example.config.Config;
+import org.example.user.UserContext;
+import org.example.util.Util;
 import org.hyperledger.fabric.sdk.Channel;
 import org.hyperledger.fabric.sdk.Enrollment;
 import org.hyperledger.fabric.sdk.Orderer;
