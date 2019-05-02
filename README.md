@@ -205,7 +205,7 @@ This code pattern uses a sample chaincode `fabcar` to demo the usage of Hyperled
 A new user can be registered and enrolled to an MSP. Execute the below command to register a new user and enroll to Org1MSP.
 
    ```
-   java -cp blockchain-client.jar org.app.user.RegisterEnrollUser
+   java -cp blockchain-client.jar org.example.user.RegisterEnrollUser
    ```
 
    Output:
@@ -215,11 +215,11 @@ A new user can be registered and enrolled to an MSP. Execute the below command t
       log4j:WARN No appenders could be found for logger (org.hyperledger.fabric.sdk.helper.Config).
       log4j:WARN Please initialize the log4j system properly.
       log4j:WARN See https://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
-      Apr 23, 2018 10:26:35 AM org.app.client.CAClient enrollAdminUser
+      Apr 23, 2018 10:26:35 AM org.example.client.CAClient enrollAdminUser
       INFO: CA -http://localhost:7054 Enrolled Admin.
-      Apr 23, 2018 10:26:35 AM org.app.client.CAClient registerUser
+      Apr 23, 2018 10:26:35 AM org.example.client.CAClient registerUser
       INFO: CA -http://localhost:7054 Registered User - user1524459395783
-      Apr 23, 2018 10:26:36 AM org.app.client.CAClient enrollUser
+      Apr 23, 2018 10:26:36 AM org.example.client.CAClient enrollUser
       INFO: CA -http://localhost:7054 Enrolled User - user1524459395783
    ```
 
