@@ -137,26 +137,26 @@ To work with the deployed network using Hyperledger Fabric SDK java 1.0.0, perfo
 
 ### 3. Create and Initialize the channel
 
-In this code pattern, we create one channel `mychannel` which is joined by all four peers. The java source code can be seen at  `src/main/java/org/app/network/CreateChannel.java`. To create and initialize the channel, run the following command.
+In this code pattern, we create one channel `mychannel` which is joined by all four peers. The java source code can be seen at  `src/main/java/org/example/network/CreateChannel.java`. To create and initialize the channel, run the following command.
 
    ```
    cd ../../network_resources
-   java -cp blockchain-client.jar org.app.network.CreateChannel
+   java -cp blockchain-client.jar org.example.network.CreateChannel
    ```
 
 Output:
 
-   ```Apr 20, 2018 5:11:42 PM org.app.util.Util deleteDirectory
+   ```Apr 20, 2018 5:11:42 PM org.example.util.Util deleteDirectory
       INFO: Deleting - users
-      Apr 20, 2018 5:11:45 PM org.app.network.CreateChannel main
+      Apr 20, 2018 5:11:45 PM org.example.network.CreateChannel main
       INFO: Channel created mychannel
-      Apr 20, 2018 5:11:45 PM org.app.network.CreateChannel main
+      Apr 20, 2018 5:11:45 PM org.example.network.CreateChannel main
       INFO: peer0.org1.example.com at grpc://localhost:7051
-      Apr 20, 2018 5:11:45 PM org.app.network.CreateChannel main
+      Apr 20, 2018 5:11:45 PM org.example.network.CreateChannel main
       INFO: peer1.org1.example.com at grpc://localhost:7056
-      Apr 20, 2018 5:11:45 PM org.app.network.CreateChannel main
+      Apr 20, 2018 5:11:45 PM org.example.network.CreateChannel main
       INFO: peer0.org2.example.com at grpc://localhost:8051
-      Apr 20, 2018 5:11:45 PM org.app.network.CreateChannel main
+      Apr 20, 2018 5:11:45 PM org.example.network.CreateChannel main
       INFO: peer1.org2.example.com at grpc://localhost:8056
    ```
 
@@ -165,36 +165,36 @@ Output:
 This code pattern uses a sample chaincode `fabcar` to demo the usage of Hyperledger Fabric SDK Java APIs. To deploy and instantiate the chaincode, execute the following command.
 
    ```
-   java -cp blockchain-client.jar org.app.network.DeployInstantiateChaincode
+   java -cp blockchain-client.jar org.example.network.DeployInstantiateChaincode
    ```
 
    Output:
 
-   ```Apr 23, 2018 10:25:22 AM org.app.client.FabricClient deployChainCode
+   ```Apr 23, 2018 10:25:22 AM org.example.client.FabricClient deployChainCode
       INFO: Deploying chaincode fabcar using Fabric client Org1MSP admin
-      Apr 23, 2018 10:25:22 AM org.app.network.DeployInstantiateChaincode main
+      Apr 23, 2018 10:25:22 AM org.example.network.DeployInstantiateChaincode main
       INFO: fabcar- Chain code deployment SUCCESS
-      Apr 23, 2018 10:25:22 AM org.app.network.DeployInstantiateChaincode main
+      Apr 23, 2018 10:25:22 AM org.example.network.DeployInstantiateChaincode main
       INFO: fabcar- Chain code deployment SUCCESS
-      Apr 23, 2018 10:25:22 AM org.app.client.FabricClient deployChainCode
+      Apr 23, 2018 10:25:22 AM org.example.client.FabricClient deployChainCode
       INFO: Deploying chaincode fabcar using Fabric client Org2MSP admin
-      Apr 23, 2018 10:25:22 AM org.app.network.DeployInstantiateChaincode main
+      Apr 23, 2018 10:25:22 AM org.example.network.DeployInstantiateChaincode main
       INFO: fabcar- Chain code deployment SUCCESS
-      Apr 23, 2018 10:25:22 AM org.app.network.DeployInstantiateChaincode main
+      Apr 23, 2018 10:25:22 AM org.example.network.DeployInstantiateChaincode main
       INFO: fabcar- Chain code deployment SUCCESS
-      Apr 23, 2018 10:25:22 AM org.app.client.ChannelClient instantiateChainCode
+      Apr 23, 2018 10:25:22 AM org.example.client.ChannelClient instantiateChainCode
       INFO: Instantiate proposal request fabcar on channel mychannel with Fabric client Org2MSP admin
-      Apr 23, 2018 10:25:22 AM org.app.client.ChannelClient instantiateChainCode
+      Apr 23, 2018 10:25:22 AM org.example.client.ChannelClient instantiateChainCode
       INFO: Instantiating Chaincode ID fabcar on channel mychannel
-      Apr 23, 2018 10:25:25 AM org.app.client.ChannelClient instantiateChainCode
+      Apr 23, 2018 10:25:25 AM org.example.client.ChannelClient instantiateChainCode
       INFO: Chaincode fabcar on channel mychannel instantiation java.util.concurrent.CompletableFuture@723ca036[Not completed]
-      Apr 23, 2018 10:25:25 AM org.app.network.DeployInstantiateChaincode main
+      Apr 23, 2018 10:25:25 AM org.example.network.DeployInstantiateChaincode main
       INFO: fabcar- Chain code instantiation SUCCESS
-      Apr 23, 2018 10:25:25 AM org.app.network.DeployInstantiateChaincode main
+      Apr 23, 2018 10:25:25 AM org.example.network.DeployInstantiateChaincode main
       INFO: fabcar- Chain code instantiation SUCCESS
-      Apr 23, 2018 10:25:25 AM org.app.network.DeployInstantiateChaincode main
+      Apr 23, 2018 10:25:25 AM org.example.network.DeployInstantiateChaincode main
       INFO: fabcar- Chain code instantiation SUCCESS
-      Apr 23, 2018 10:25:25 AM org.app.network.DeployInstantiateChaincode main
+      Apr 23, 2018 10:25:25 AM org.example.network.DeployInstantiateChaincode main
       INFO: fabcar- Chain code instantiation SUCCESS
    ```
 
@@ -210,7 +210,7 @@ A new user can be registered and enrolled to an MSP. Execute the below command t
 
    Output:
 
-   ```Apr 23, 2018 10:26:34 AM org.app.util.Util deleteDirectory
+   ```Apr 23, 2018 10:26:34 AM org.example.util.Util deleteDirectory
       INFO: Deleting - users
       log4j:WARN No appenders could be found for logger (org.hyperledger.fabric.sdk.helper.Config).
       log4j:WARN Please initialize the log4j system properly.
@@ -228,46 +228,46 @@ A new user can be registered and enrolled to an MSP. Execute the below command t
 Blockchain network has been setup completely and is ready to use. Now we can test the network by performing invoke and query on the network. The `fabcar` chaincode allows us to create a new asset which is a car. For test purpose, invoke operation is performed to create a new asset in the network and query operation is performed to list the asset of the network. Perform the following steps to check the same.
 
    ```
-   java -cp blockchain-client.jar org.app.chaincode.invocation.InvokeChaincode
+   java -cp blockchain-client.jar org.example.chaincode.invocation.InvokeChaincode
    ```
 
    Output:
 
-   ```Apr 20, 2018 5:13:03 PM org.app.client.CAClient enrollAdminUser
+   ```Apr 20, 2018 5:13:03 PM org.example.client.CAClient enrollAdminUser
      INFO: CA -http://localhost:7054 Enrolled Admin.
-     Apr 20, 2018 5:13:04 PM org.app.client.ChannelClient sendTransactionProposal
+     Apr 20, 2018 5:13:04 PM org.example.client.ChannelClient sendTransactionProposal
      INFO: Sending transaction proposal on channel mychannel
-     Apr 20, 2018 5:13:04 PM org.app.client.ChannelClient sendTransactionProposal
+     Apr 20, 2018 5:13:04 PM org.example.client.ChannelClient sendTransactionProposal
      INFO: Transaction proposal on channel mychannel OK SUCCESS with transaction
      id:a298b9e27bdb0b6ca18b19f9c78a5371fb4d9b8dd199927baf37379537ca0d0f
-     Apr 20, 2018 5:13:04 PM org.app.client.ChannelClient sendTransactionProposal
+     Apr 20, 2018 5:13:04 PM org.example.client.ChannelClient sendTransactionProposal
      INFO:
-     Apr 20, 2018 5:13:04 PM org.app.client.ChannelClient sendTransactionProposal
+     Apr 20, 2018 5:13:04 PM org.example.client.ChannelClient sendTransactionProposal
      INFO: java.util.concurrent.CompletableFuture@22f31dec[Not completed]
-     Apr 20, 2018 5:13:04 PM org.app.chaincode.invocation.InvokeChaincode main
+     Apr 20, 2018 5:13:04 PM org.example.chaincode.invocation.InvokeChaincode main
      INFO: Invoked createCar on fabcar. Status - SUCCESS
   ```
 
    ```
-   java -cp blockchain-client.jar org.app.chaincode.invocation.QueryChaincode
+   java -cp blockchain-client.jar org.example.chaincode.invocation.QueryChaincode
    ```
 
    Output:
 
    <pre>
-    Apr 20, 2018 5:13:28 PM org.app.client.CAClient enrollAdminUser
+    Apr 20, 2018 5:13:28 PM org.example.client.CAClient enrollAdminUser
     INFO: CA -http://localhost:7054 Enrolled Admin.
-    Apr 20, 2018 5:13:29 PM org.app.chaincode.invocation.QueryChaincode main
+    Apr 20, 2018 5:13:29 PM org.example.chaincode.invocation.QueryChaincode main
     INFO: <b>Querying for all cars ...</b>
-    Apr 20, 2018 5:13:29 PM org.app.client.ChannelClient queryByChainCode
+    Apr 20, 2018 5:13:29 PM org.example.client.ChannelClient queryByChainCode
     INFO: Querying queryAllCars on channel mychannel
-    Apr 20, 2018 5:13:29 PM org.app.chaincode.invocation.QueryChaincode main
+    Apr 20, 2018 5:13:29 PM org.example.chaincode.invocation.QueryChaincode main
     INFO: <b>[{"Key":"CAR1", "Record":{"make":"Chevy","model":"Volt","colour":"Red","owner":"Nick"}}]</b>
-    Apr 20, 2018 5:13:39 PM org.app.chaincode.invocation.QueryChaincode main
+    Apr 20, 2018 5:13:39 PM org.example.chaincode.invocation.QueryChaincode main
     INFO: <b>Querying for a car - CAR1</b>
-    Apr 20, 2018 5:13:39 PM org.app.client.ChannelClient queryByChainCode
+    Apr 20, 2018 5:13:39 PM org.example.client.ChannelClient queryByChainCode
     INFO: Querying queryCar on channel mychannel
-    Apr 20, 2018 5:13:39 PM org.app.chaincode.invocation.QueryChaincode main
+    Apr 20, 2018 5:13:39 PM org.example.chaincode.invocation.QueryChaincode main
     INFO: <b>{"make":"Chevy","model":"Volt","colour":"Red","owner":"Nick"}</b>
    </pre>
 
