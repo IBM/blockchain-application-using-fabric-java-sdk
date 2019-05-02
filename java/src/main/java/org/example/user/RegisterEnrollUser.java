@@ -10,11 +10,11 @@
  *  See the License for the specific language governing permissions and 
  *  limitations under the License.
  */
-package org.app.user;
+package org.example.user;
 
-import org.app.client.CAClient;
-import org.app.config.Config;
-import org.app.util.Util;
+import org.example.client.CAClient;
+import org.example.config.Config;
+import org.example.util.Util;
 
 /**
  * 

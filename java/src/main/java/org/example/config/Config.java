@@ -1,4 +1,4 @@
-package org.app.config;
+package org.example.config;
 
 import java.io.File;
 
