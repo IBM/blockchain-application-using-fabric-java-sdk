@@ -36,10 +36,11 @@
 	</build>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.hyperledger.fabric-sdk-java</groupId>
-			<artifactId>fabric-sdk-java</artifactId>
-			<version>1.0.0</version>
-		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hyperledger.fabric-sdk-java/fabric-sdk-java -->
+     <dependency>
+         <groupId>org.hyperledger.fabric-sdk-java</groupId>
+         <artifactId>fabric-sdk-java</artifactId>
+         <version>1.4.1</version>
+     </dependency>
 	</dependencies>
 </project>
