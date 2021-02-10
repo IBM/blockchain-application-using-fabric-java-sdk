@@ -1,4 +1,6 @@
-# Create and Deploy a Blockchain Network using Hyperledger Fabric SDK Java
+# Create and deploy a blockchain network using Hyperledger Fabric SDK for Java
+
+> Set up and initialize the channel, install and instantiate chaincode, and perform invoke and query on your blockchain network
 
 Blockchain is a shared, immutable ledger for recording the history of transactions. The Linux Foundation’s Hyperledger Fabric, the software implementation of blockchain IBM is committed to, is a permissioned network. Hyperledger Fabric is a platform for distributed ledger solutions underpinned by a modular architecture delivering high degrees of confidentiality, resiliency, flexibility and scalability.
 
