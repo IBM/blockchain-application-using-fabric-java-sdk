@@ -1,3 +1,5 @@
+## NOTE: This repository has been archived and no longer maintained!
+
 # Create and deploy a blockchain network using Hyperledger Fabric SDK for Java
 
 > Set up and initialize the channel, install and instantiate chaincode, and perform invoke and query on your blockchain network
